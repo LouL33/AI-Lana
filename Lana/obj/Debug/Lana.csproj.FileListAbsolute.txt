@@ -1,0 +1,9 @@
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\bin\Debug\Lana.exe.config
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\bin\Debug\Lana.exe
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\bin\Debug\Lana.pdb
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\obj\Debug\Lana.csprojResolveAssemblyReference.cache
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\obj\Debug\Lana.Form1.resources
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\obj\Debug\Lana.Properties.Resources.resources
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\obj\Debug\Lana.csproj.GenerateResource.Cache
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\obj\Debug\Lana.exe
+C:\Users\Lou75\Desktop\Lana\Lana\Lana\obj\Debug\Lana.pdb
