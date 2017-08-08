@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.Diagnostics;
+using System.IO.Ports;
 
 namespace Lana
 {
@@ -17,14 +18,18 @@ namespace Lana
     {
 
         SpeechSynthesizer s = new SpeechSynthesizer();
+        Boolean wake = true;
+
+        //SerialPort port = new SerialPort("Com3", 9600, Parity.None,8, StopBits.One);
+
         Choices list = new Choices();
 
         public Form1()
         {
             SpeechRecognitionEngine rec = new SpeechRecognitionEngine();
 
-            list.Add(new string[] { "hello", "how are you", "lana", "what time is it", "open web", "thank you", "wake", "sleep mode", "restart", "update" });
-
+            list.Add(new string[] { "hello", "how are you", "computer", "what time is it", "open web", "thank you", "wake", "sleep", "restart", "update", "lights on", "lights off" });
+            
             Grammar gr = new Grammar(new GrammarBuilder(list));
 
             try
@@ -55,6 +60,7 @@ namespace Lana
         public void say(string h)
         {
             s.Speak(h);
+            textBox1.AppendText(h + "\n");
         }
 
         private void rec_SpeachRecgnized(object sender, SpeechRecognizedEventArgs e)
@@ -62,13 +68,37 @@ namespace Lana
 
             string r = e.Result.Text;
             // sleep/wake doesnt work yet!!!!!!!!!!!
-            //Boolean wake = true;
 
-            //if (r == "wake") wake = true;
-            //if (r == "sleep mode") wake = false;
+            //if (r == "wake")
+            //{
+            //    wake = true;
+            //    label3.Text = "State: wake";
+            //}
+            //if (r == "sleep mode")
+            //{
+            //    wake = false;
+            //    label3.Text = "State: sleep";
+            //}
+
+            // need arduino to opperate
+
+            //if (r == "lights on")
+            //{
+            //    port.Open();
+            //    port.WriteLine("A");
+            //    port.Close();
+            //}
+
+            //if (r == "lights off")
+            //{
+            //    port.Open();
+            //    port.WriteLine("B");
+            //    port.Close();
+            //}
 
             //if (wake == true)
             //{
+
             if (r == "restart" || r == "update")
             {
                 restart();
@@ -85,7 +115,7 @@ namespace Lana
 
                 say("Awesome");
             }
-            if (r == "lana")
+            if (r == "computer")
             {
 
                 say("Yes");
@@ -95,6 +125,11 @@ namespace Lana
 
                 say(DateTime.Now.ToString("h:mm tt"));
             }
+            //if (r == "what is today")
+            //{
+
+            //    say(DateTime.Now.ToString("m/d/yyyy"));
+            //}
             if (r == "open web")
             {
 
@@ -106,8 +141,9 @@ namespace Lana
 
                 say("Your Welcome");
             }
-            // }
-        }
+            textBox2.AppendText(r + "\n");
+            }
+        //}
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -115,6 +151,10 @@ namespace Lana
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
